@@ -1,4 +1,4 @@
-/* src/styles/NoteForm.css */
+
 
 body {
   margin: 0;
@@ -13,13 +13,13 @@ body {
   margin-top: 20px;
   height: auto;
   width: 500px;
-  border-color: black;
+  border-color: rgb(9, 9, 9);
 }
-
+  
 .heading{
   width: 100%;
 }
-
+  
 .form-label {
   display: block;
   margin-bottom: 8px;

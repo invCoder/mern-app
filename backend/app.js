@@ -2,6 +2,8 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 const app = express();
+const cors = require('cors'); // Import cors module
+
 const PORT = process.env.PORT || 5000;
 const noteRoutes = require('./routes/user-notes');
 
@@ -12,6 +14,10 @@ mongoose.connect("mongodb+srv://Shubhamlal:jan2024@cluster0.flqoi.mongodb.net/lo
 
 //Express middleware
 app.use(express.json());
+
+// Enable CORS for all routes
+app.use(cors());
+
 
 //Define routes here
 app.get('/' , (req,res,next)=>{

@@ -2,6 +2,7 @@
 import './App.css';
 import NoteForm from './components/NoteForm';
 import './components/NoteStyle.css';
+import NotesTable from './components/NotesTable';
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
       <div className="form-body">
       <NoteForm/>
       </div>
+      <h2>Notes:</h2>
+      <ul>
+        <NotesTable/>
+      </ul>
     </div>
   );
 }

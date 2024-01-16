@@ -2,16 +2,20 @@ const intialState = {
     notes: [],
 };
 
-const noteReducer = (state= intialState, action) => {
+export const noteReducer = (state = intialState, action) => {
     switch (action.type){
         case 'ADD_NOTE':
             return {
                 ...state,
                 notes: [...state.notes, action.payload],
             };
-            default:
-                return state;
-
-    }
+        case 'GET_NOTES':
+            console.log("we have payload", action.payload);
+            return {
+                ...state,
+                notes: action.payload.notes,
+            };
+        default:
+            return state;
+        };
 };
-export default noteReducer;
