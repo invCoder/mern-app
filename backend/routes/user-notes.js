@@ -6,8 +6,8 @@ const Note = require('../models/Note');
 //create a new note
 router.post('/notes', async (req, res) => {
     try {
-        const {title, description} = req.body;
-        const newNote = new Note({ title, description});
+        const {title, description, date} = req.body;
+        const newNote = new Note({ title, description, date});
         const saveNote = await newNote.save();
         res.json(saveNote);
     } catch (error) {
