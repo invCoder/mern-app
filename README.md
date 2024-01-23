@@ -1,5 +1,7 @@
 Backend - In postman's post url like http://localhost:5000/api/notes go to body and in raw data add object like { "name": "first name", "age": "number", "gender": "M"} and then in test dropdown select json. Then click on post and we set get the object in MonogoDB. to get the data from db create get api url in postman. 
 
+* Added react-datepicker and also use formating it.
+
 
 "dependencies": =>
 
