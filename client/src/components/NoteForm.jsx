@@ -7,6 +7,7 @@ import  DatePicker  from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 import './NoteStyle.css';
+import { fetchNotes } from '../slice/noteSlice';
 
 const NoteForm = () => {
     const dispatch = useDispatch();
@@ -22,9 +23,13 @@ const NoteForm = () => {
        }));
     }
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addNote(note));
+        //dispatch the action to create new note
+        await dispatch(addNote(note));
+        
+        //dispatch to fetch the list of notes
+        await dispatch(fetchNotes());
         setNote({ title: "", description: "", date:""});
 
     }
