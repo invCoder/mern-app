@@ -2,6 +2,11 @@ Backend - In postman's post url like http://localhost:5000/api/notes go to body 
 
 * Added react-datepicker and also use formating it.
 
+* when i click on form submit I also want to get the changes reflected to the table of note.
+To update the table of notes when a new note is submitted, you can follow these steps: Dispatch the fetchNotes Action After Submission:
+After successfully adding a new note, dispatch the fetchNotes action to update the list of notes. Update the State After Submission:
+If you have control over the state within the NoteForm component, update the state locally with the new note after submission.
+
 
 "dependencies": =>
 
