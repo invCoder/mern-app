@@ -12,6 +12,7 @@ import { fetchNotes } from '../slice/noteSlice';
 const NoteForm = () => {
     const dispatch = useDispatch();
     const [note, setNote] = useState({title : "", description: "", date: new Date()});
+    const [showSuccess, setShowSuccess] = useState(false);
 
     // const [ description, setDescription] = useState('');
 
@@ -27,10 +28,16 @@ const NoteForm = () => {
         e.preventDefault();
         //dispatch the action to create new note
         await dispatch(addNote(note));
-        
+
         //dispatch to fetch the list of notes
         await dispatch(fetchNotes());
         setNote({ title: "", description: "", date:""});
+        //setting success message
+        setShowSuccess(true);
+        //hide success message after completion
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 3000);
 
     }
 
@@ -44,6 +51,7 @@ const NoteForm = () => {
     }
 
   return (
+    <div>
     <form className='form-container' onSubmit={handleFormSubmit}>
       <label className='form-label'>Title:</label>
       <input className='form-input' type="text" 
@@ -68,7 +76,9 @@ const NoteForm = () => {
       <button className='form-button' 
       type="submit">Add Note</button>
     </form>
-  );
+
+    {showSuccess && <div className='successNotification'>Addition is successful!</div>}
+    </div>  );
 };
 
 export default NoteForm;
